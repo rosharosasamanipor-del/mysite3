@@ -6,29 +6,45 @@
 body {
     direction: rtl;
     background-image: url('wp2532974.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     font-family: yekan;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 header {
     background-color: #ffffff1e;
-    margin: 50px;
+    width: calc(100% - 100px);
+    max-width: 1500px;
+    margin: 50px auto;
     display: flex;
+    min-height: 600px;
 }
 
 .profile {
-    padding: 50px;
+    flex: 0 0 240px;
+    padding: 40px 25px;
     color: #fff;
     text-align: center;
-
 }
 
 .profile img {
-    width: 150px;
-    border-radius: 150px;
+    width: 100%;
+    max-width: 150px;
+    border-radius: 50%;
+    height: auto;
 }
 
 .info {
     width: 100%;
+    flex: 1;
+    min-width: 0;
     height: 600px;
     background-color: #fff;
     overflow: auto;
@@ -39,10 +55,19 @@ header {
     padding-bottom: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.me > div {
+    min-width: 0;
 }
 
 .me img {
-    width: 300px;
+    width: 35%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
 }
 
 .me button {
@@ -52,7 +77,6 @@ header {
     border-color: #6c6d6d;
     border-radius: 10px;
     font-family: yekan;
-
 }
 
 .me button:hover {
@@ -61,6 +85,7 @@ header {
 }
 
 .menu {
+    flex: 0 0 70px;
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -72,7 +97,6 @@ header {
     padding: 15px;
     color: #6c6d6d;
     font-size: 28px;
-
 }
 
 .menu i:hover {
@@ -81,10 +105,14 @@ header {
 
 .skills {
     padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
 }
 
 .box1 {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     height: 20px;
     background-color: #ddd;
     border-radius: 20px;
@@ -98,13 +126,168 @@ header {
     color: #fff;
 }
 
+.nemoneha {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    padding: 0 30px 30px;
+}
+
 .nemoneha img {
-    width: 60%;
+    width: 100%;
+    max-width: 260px;
     border-radius: 50px;
-    margin: 50px;
+    margin: 20px auto 10px;
+    display: block;
 }
 
 .item {
     text-align: center;
+    min-width: 0;
+}
 
+/* Tablet */
+@media (max-width: 1100px) {
+    header {
+        width: calc(100% - 40px);
+        margin: 30px auto;
+    }
+
+    .profile {
+        flex-basis: 200px;
+        padding: 35px 15px;
+    }
+
+    .me {
+        padding: 60px 40px 0;
+    }
+
+    .skills {
+        padding: 40px;
+        gap: 18px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+    header {
+        width: calc(100% - 24px);
+        margin: 12px auto;
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    .profile {
+        width: 100%;
+        flex: none;
+        padding: 25px 15px;
+    }
+
+    .profile img {
+        width: 110px;
+    }
+
+    .info {
+        height: auto;
+        overflow: visible;
+    }
+
+    .me {
+        padding: 35px 25px 0;
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .me img {
+        width: min(55vw, 220px);
+    }
+
+    .me button {
+        margin: 5px 2px;
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+        padding: 30px 25px;
+    }
+
+    .box1 {
+        max-width: none;
+    }
+
+    .nemoneha {
+        grid-template-columns: 1fr;
+        padding: 0 25px 30px;
+    }
+
+    .nemoneha img {
+        max-width: 320px;
+    }
+
+    .menu {
+        order: -1;
+        width: 100%;
+        margin-right: 0;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .menu i {
+        padding: 12px 15px;
+        font-size: 23px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    header {
+        width: calc(100% - 12px);
+        margin: 6px auto;
+    }
+
+    .profile {
+        padding: 20px 10px;
+    }
+
+    .profile img {
+        width: 90px;
+    }
+
+    .me {
+        padding: 25px 15px 0;
+    }
+
+    .me h1 {
+        font-size: 28px;
+        overflow-wrap: anywhere;
+    }
+
+    .me img {
+        width: min(60vw, 190px);
+    }
+
+    .me button {
+        width: 95px;
+        height: 40px;
+    }
+
+    .skills {
+        padding: 25px 15px;
+    }
+
+    .nemoneha {
+        padding: 0 15px 25px;
+    }
+
+    .nemoneha img {
+        width: 100%;
+        margin: 15px auto 8px;
+        border-radius: 25px;
+    }
+
+    .menu i {
+        padding: 10px 12px;
+        font-size: 20px;
+    }
 }
